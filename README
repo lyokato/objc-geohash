@@ -10,4 +10,45 @@ Copy all files under 'Classes' directory into your project.
 
 #import "GeoHash.h"
 
-later
+/* Get GetHash by latitude, longtitude, and hash-length */
+
+NSString *hash = [GeoHash hashForLatitude:35.6894875
+                               longtitude:139.6917064 
+                                   length:13];
+
+/* hash equals to @"xn774c06kdtve" */
+
+
+/* Decode GeoHash and get an area which the hash indicates */
+
+GHArea *area = [GeoHash areaForHash:@"c216ne"];
+
+area.latitude.max
+area.latitude.min
+area.longtitude.max
+area.longtitude.min
+
+
+/* Adjacent */
+NSString *adjacentHash = [GeoHash adjacentForHash:@"dqcjq"
+                                        direction:GHDirectionNorth];
+/* @"dqcjw" */
+
+
+NSNeighbors *neighbors = [GeoHash neighborsForHash:@"dqcw5"];
+
+neighbors.north
+neighbors.south
+neighbors.east
+neighbors.west
+neighbors.northEast
+neighbors.northWest
+neighbors.southEast
+neighbors.southWest
+
+
+
+
+
+
+

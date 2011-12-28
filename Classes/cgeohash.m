@@ -30,6 +30,8 @@ THE SOFTWARE.
 #include <stdbool.h>
 #include <assert.h>
 
+#define MAX_HASH_LENGTH 22
+
 static const char BASE32_ENCODE_TABLE[33] = "0123456789bcdefghjkmnpqrstuvwxyz";
 static const short BASE32_DECODE_TABLE[44] = {
     /* 0 */   0, /* 1 */   1, /* 2 */   2, /* 3 */   3, /* 4 */   4,    
@@ -163,7 +165,7 @@ GEOHASH_encode(double lat, double lon, unsigned int len)
     assert(lat <= 90.0);
     assert(lon >= -180.0);
     assert(lon <= 180.0);
-    assert(len <= 13);
+    assert(len <= MAX_HASH_LENGTH);
 
     hash = (char *)malloc(sizeof(char) * (len + 1));
     if (hash == NULL)
