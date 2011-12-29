@@ -25,6 +25,8 @@ THE SOFTWARE.
 #ifndef _LIB_GEOHASH_H_
 #define _LIB_GEOHASH_H_
 
+#include <stdbool.h>
+
 #if defined(__cplusplus)
 extern "C" {
 #endif
@@ -57,6 +59,7 @@ typedef struct {
     char* south_west;
 } GEOHASH_neighbors;
 
+bool GEOHASH_verify_hash(const char *hash);
 char* GEOHASH_encode(double latitude, double longtitude, unsigned int hash_length);
 GEOHASH_area* GEOHASH_decode(const char* hash);
 GEOHASH_neighbors* GEOHASH_get_neighbors(const char *hash);

@@ -203,4 +203,12 @@
                        southEast:@"c23nb62v"];
 }
 
+- (void)testVerification
+{
+    STAssertTrue([GeoHash verifyHash:@"dqcw5"], @"Invalid hash verification");
+    STAssertTrue([GeoHash verifyHash:@"Dqcw7"], @"Invalid hash verification");
+    STAssertFalse([GeoHash verifyHash:@"abcwd"], @"Invalid hash verification");
+    STAssertFalse([GeoHash verifyHash:@"dqcw5@"], @"Invalid hash verification");
+}
+
 @end

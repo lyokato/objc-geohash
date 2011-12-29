@@ -8,5 +8,6 @@
 - (void)testDecode;
 - (void)testAdjacent;
 - (void)testNeighbors;
+- (void)testVerification;
 @end
 

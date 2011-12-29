@@ -47,6 +47,11 @@ neighbors.southEast
 neighbors.southWest
 
 
+/* check invalid hash */
+if (![GeoHash verifyHash:@"abw!@"])
+{
+    ...
+}
 
 
 

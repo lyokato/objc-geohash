@@ -33,6 +33,11 @@ THE SOFTWARE.
 
 @implementation GeoHash
 
++(BOOL)verifyHash:(NSString *)hash
+{
+    return (BOOL)GEOHASH_verify_hash([hash cStringUsingEncoding:NSASCIIStringEncoding]);
+}
+
 +(GEOHASH_direction)convertDirectionType:(GHDirection)dir
 {
     GEOHASH_direction converted;
