@@ -37,16 +37,19 @@ typedef enum {
 @interface GeoHash : NSObject { 
 }
 
-+(BOOL)verifyHash:(NSString *)hash;
++ (BOOL)verifyHash:(NSString *)hash;
+
 + (NSString *)hashForLatitude:(double)lat
                    longtitude:(double)lon
-                       length:(int)length;
+                       length:(unsigned int)length;
 
 + (GHArea *)areaForHash:(NSString *)hash;
 
 + (NSString *)adjacentForHash:(NSString *)hash 
                     direction:(GHDirection)dir;
+
 + (GHNeighbors *)neighborsForHash:(NSString *)hash;
+
 @end
 
 

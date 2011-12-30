@@ -33,7 +33,7 @@ THE SOFTWARE.
 #define MAX_HASH_LENGTH 22
 
 static const char BASE32_ENCODE_TABLE[33] = "0123456789bcdefghjkmnpqrstuvwxyz";
-static const short BASE32_DECODE_TABLE[44] = {
+static const char BASE32_DECODE_TABLE[44] = {
     /* 0 */   0, /* 1 */   1, /* 2 */   2, /* 3 */   3, /* 4 */   4,    
     /* 5 */   5, /* 6 */   6, /* 7 */   7, /* 8 */   8, /* 9 */   9,    
     /* : */  -1, /* ; */  -1, /* < */  -1, /* = */  -1, /* > */  -1, 
@@ -119,7 +119,7 @@ GEOHASH_decode(const char *hash)
 {
     const char *p;
     unsigned char c;
-    short bits;
+    char bits;
     GEOHASH_area *area;
     GEOHASH_range *range1, *range2, *range_tmp;
 

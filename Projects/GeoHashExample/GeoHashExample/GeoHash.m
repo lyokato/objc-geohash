@@ -63,14 +63,13 @@ THE SOFTWARE.
 
 + (NSString *)hashForLatitude:(double)lat
                    longtitude:(double)lon
-                       length:(int)length 
+                       length:(unsigned int)length 
 {
     NSAssert(lat <=   90.0, @"latitude should be under 90");
     NSAssert(lat >=  -90.0, @"latitude should be over -90");
     NSAssert(lon <=  180.0, @"longtitue should be under 180");
     NSAssert(lon >= -180.0, @"longtitude should be over -180");
-    NSAssert(length <=  14, @"length should be under 14");
-    NSAssert(length >    0, @"length should be over 0");
+    NSAssert(length <=  22, @"length should be under 22");
 
     char *raw_hash;
     raw_hash = GEOHASH_encode(lat, lon, length);
