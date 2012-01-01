@@ -22,29 +22,53 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#import "GHArea.h"
-#import "GHRange.h"
+#ifndef _LIB_GEOHASH_H_
+#define _LIB_GEOHASH_H_
 
-@implementation GHArea
+#include <stdbool.h>
 
-@synthesize latitude;
-@synthesize longtitude;
+#if defined(__cplusplus)
+extern "C" {
+#endif
 
-+ (id)areaWithLatitude:(GHRange *)lat
-            longtitude:(GHRange *)lon
-{
-    return [[GHArea alloc] initWithLatitude:lat 
-                                 longtitude:lon];
+typedef enum {
+    GEOHASH_NORTH = 0,
+    GEOHASH_EAST,
+    GEOHASH_WEST,
+    GEOHASH_SOUTH
+} GEOHASH_direction;
+
+typedef struct {
+    double max;
+    double min;
+} GEOHASH_range;
+
+typedef struct {
+    GEOHASH_range latitude;
+    GEOHASH_range longtitude;
+} GEOHASH_area;
+
+typedef struct {
+    char* north;
+    char* east;
+    char* west;
+    char* south;
+    char* north_east;
+    char* south_east;
+    char* north_west;
+    char* south_west;
+} GEOHASH_neighbors;
+
+bool GEOHASH_verify_hash(const char *hash);
+char* GEOHASH_encode(double latitude, double longtitude, unsigned int hash_length);
+GEOHASH_area* GEOHASH_decode(const char* hash);
+GEOHASH_neighbors* GEOHASH_get_neighbors(const char *hash);
+void GEOHASH_free_neighbors(GEOHASH_neighbors *neighbors);
+char* GEOHASH_get_adjacent(const char* hash, GEOHASH_direction dir);
+void GEOHASH_free_area(GEOHASH_area *area);
+
+#if defined(__cplusplus)
 }
+#endif
 
-- (id)initWithLatitude:(GHRange *)lat
-            longtitude:(GHRange *)lon
-{
-    if ((self = [super init]) != nil) {
-        latitude   = lat;
-        longtitude = lon;
-    }
-    return self;
-}
-
-@end
+#endif

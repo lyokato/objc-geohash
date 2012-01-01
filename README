@@ -2,7 +2,7 @@
  INSTALL
 =======================================================================
 
-Copy all files under 'Classes' directory into your project.
+Copy all files under 'Classes/ARC' or 'Classes/NonARC' directory into your project.
 
 =======================================================================
  USAGE

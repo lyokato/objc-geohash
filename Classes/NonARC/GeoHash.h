@@ -22,29 +22,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+#import <Foundation/Foundation.h>
 #import "GHArea.h"
 #import "GHRange.h"
+#import "GHNeighbors.h"
 
-@implementation GHArea
+typedef enum {
+    GHDirectionNorth = 0,
+    GHDirectionEast,
+    GHDirectionWest,
+    GHDirectionSouth,
+} GHDirection;
 
-@synthesize latitude;
-@synthesize longtitude;
-
-+ (id)areaWithLatitude:(GHRange *)lat
-            longtitude:(GHRange *)lon
-{
-    return [[GHArea alloc] initWithLatitude:lat 
-                                 longtitude:lon];
+@interface GeoHash : NSObject { 
 }
 
-- (id)initWithLatitude:(GHRange *)lat
-            longtitude:(GHRange *)lon
-{
-    if ((self = [super init]) != nil) {
-        latitude   = lat;
-        longtitude = lon;
-    }
-    return self;
-}
++ (BOOL)verifyHash:(NSString *)hash;
+
++ (NSString *)hashForLatitude:(double)lat
+                   longtitude:(double)lon
+                       length:(unsigned int)length;
+
++ (GHArea *)areaForHash:(NSString *)hash;
+
++ (NSString *)adjacentForHash:(NSString *)hash 
+                    direction:(GHDirection)dir;
+
++ (GHNeighbors *)neighborsForHash:(NSString *)hash;
 
 @end
+
+

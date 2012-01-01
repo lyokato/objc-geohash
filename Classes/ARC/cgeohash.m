@@ -32,6 +32,22 @@ THE SOFTWARE.
 
 #define MAX_HASH_LENGTH 22
 
+#define REFINE_RANGE(range, bits, offset) \
+    if (((bits) & (offset)) == (offset)) \
+        (range)->min = ((range)->max + (range)->min) / 2.0; \
+    else \
+        (range)->max = ((range)->max + (range)->min) / 2.0;
+
+#define SET_BIT(bits, mid, range, value, offset) \
+    mid = ((range)->max + (range)->min) / 2.0; \
+    if ((value) >= mid) { \
+        (range)->min = mid; \
+        (bits) |= (0x1 << (offset)); \
+    } else { \
+        (range)->max = mid; \
+        (bits) |= (0x0 << (offset)); \
+    }
+
 static const char BASE32_ENCODE_TABLE[33] = "0123456789bcdefghjkmnpqrstuvwxyz";
 static const char BASE32_DECODE_TABLE[44] = {
     /* 0 */   0, /* 1 */   1, /* 2 */   2, /* 3 */   3, /* 4 */   4,    
@@ -66,34 +82,6 @@ static const char BORDERS_TABLE[8][9] = {
     "028b",     /* SOUTH EVEN */
     "0145hjnp"  /* SOUTH ODD */
 };
-
-static void GEOHASH_refine_range(GEOHASH_range *range, bool larger);
-static unsigned char GEOHASH_range_bit(GEOHASH_range *range, double value);
-
-static void 
-GEOHASH_refine_range(GEOHASH_range *range, bool larger)
-{
-    double mid;
-    mid = (range->max + range->min) / 2.0;
-    if (larger)
-        range->min = mid;
-    else
-        range->max = mid;
-}
-
-static unsigned char 
-GEOHASH_range_bit(GEOHASH_range *range, double value)
-{
-    double mid;
-    mid = (range->max + range->min) / 2.0;
-    if (value >= mid) {
-      range->min = mid;
-      return 0x1;
-    } else {
-      range->max = mid;
-      return 0x0;
-    }
-}
 
 bool
 GEOHASH_verify_hash(const char *hash)
@@ -155,11 +143,11 @@ GEOHASH_decode(const char *hash)
             return NULL;
         }
 
-        GEOHASH_refine_range(range1, (bits & 0x10) == 0x10);
-        GEOHASH_refine_range(range2, (bits & 0x08) == 0x08);
-        GEOHASH_refine_range(range1, (bits & 0x04) == 0x04);
-        GEOHASH_refine_range(range2, (bits & 0x02) == 0x02);
-        GEOHASH_refine_range(range1, (bits & 0x01) == 0x01);
+        REFINE_RANGE(range1, bits, 0x10);
+        REFINE_RANGE(range2, bits, 0x08);
+        REFINE_RANGE(range1, bits, 0x04);
+        REFINE_RANGE(range2, bits, 0x02);
+        REFINE_RANGE(range1, bits, 0x01);
 
         range_tmp = range1;
         range1    = range2;
@@ -174,6 +162,7 @@ GEOHASH_encode(double lat, double lon, unsigned int len)
     int i;
     char *hash;
     unsigned char bits = 0;
+    double mid;
     GEOHASH_range lat_range = {  90,  -90 };
     GEOHASH_range lon_range = { 180, -180 };
 
@@ -196,11 +185,12 @@ GEOHASH_encode(double lat, double lon, unsigned int len)
     for (i=0; i < len; i++) {
 
         bits = 0;
-        bits |= (GEOHASH_range_bit(range1, val1) << 4);
-        bits |= (GEOHASH_range_bit(range2, val2) << 3);
-        bits |= (GEOHASH_range_bit(range1, val1) << 2);
-        bits |= (GEOHASH_range_bit(range2, val2) << 1);
-        bits |= (GEOHASH_range_bit(range1, val1) << 0);
+
+        SET_BIT(bits, mid, range1, val1, 4);
+        SET_BIT(bits, mid, range2, val2, 3);
+        SET_BIT(bits, mid, range1, val1, 2);
+        SET_BIT(bits, mid, range2, val2, 1);
+        SET_BIT(bits, mid, range1, val1, 0);
 
         hash[i] = BASE32_ENCODE_TABLE[bits];
         
