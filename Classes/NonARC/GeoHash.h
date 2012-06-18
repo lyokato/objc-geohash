@@ -40,7 +40,7 @@ typedef enum {
 + (BOOL)verifyHash:(NSString *)hash;
 
 + (NSString *)hashForLatitude:(double)lat
-                   longtitude:(double)lon
+                   longitude:(double)lon
                        length:(unsigned int)length;
 
 + (GHArea *)areaForHash:(NSString *)hash;

@@ -4,15 +4,15 @@
 @interface GeoHashTestCase()
 
 - (void)verifyEncodedHashWithLatitude:(double)lat
-                           longtitude:(double)lon 
+                           longitude:(double)lon 
                                length:(NSInteger)length
                          expectedHash:(NSString *)expected;
 
 - (void)verifyDecodedAreaWithHash:(NSString *)hash
                       maxLatitude:(double)maxLat
                       minLatitude:(double)minLat
-                    maxLongtitude:(double)maxLon
-                    minLongtitude:(double)minLon;
+                    maxLongitude:(double)maxLon
+                    minLongitude:(double)minLon;
 
 - (void)verifyAdjacentWithHash:(NSString*)hash
                      direction:(GHDirection)dir
@@ -32,12 +32,12 @@
 @implementation GeoHashTestCase
 
 - (void)verifyEncodedHashWithLatitude:(double)lat
-                           longtitude:(double)lon 
+                           longitude:(double)lon 
                                length:(NSInteger)length
                          expectedHash:(NSString *)expected
 {
     NSString *encoded = [GeoHash hashForLatitude:lat
-                                      longtitude:lon 
+                                      longitude:lon 
                                           length:length];
     STAssertNotNil(encoded, @"failed encoding");
     STAssertTrue([encoded isEqualToString:expected], @"encoded hash doesn't match");
@@ -46,15 +46,15 @@
 - (void)verifyDecodedAreaWithHash:(NSString *)hash
                       maxLatitude:(double)maxLat
                       minLatitude:(double)minLat
-                    maxLongtitude:(double)maxLon
-                    minLongtitude:(double)minLon
+                    maxLongitude:(double)maxLon
+                    minLongitude:(double)minLon
 {
     GHArea *area = [GeoHash areaForHash:hash];
     STAssertNotNil(area, @"failed decoding");
     STAssertEquals([area.latitude.max doubleValue], maxLat, @"max latitude is invalid");
     STAssertEquals([area.latitude.min doubleValue], minLat, @"min latitude is invalid");
-    STAssertEquals([area.longtitude.max doubleValue], maxLon, @"max longtitude is invalid");
-    STAssertEquals([area.longtitude.min doubleValue], minLon, @"min longtitude is invalid");
+    STAssertEquals([area.longitude.max doubleValue], maxLon, @"max longitude is invalid");
+    STAssertEquals([area.longitude.min doubleValue], minLon, @"min longitude is invalid");
 }
 
 - (void)verifyAdjacentWithHash:(NSString*)hash
@@ -94,19 +94,19 @@
 {
 
     [self verifyEncodedHashWithLatitude:45.37 
-                             longtitude:-121.7
+                             longitude:-121.7
                                  length:6 
                            expectedHash:@"c216ne"];
     [self verifyEncodedHashWithLatitude:35.6894875
-                             longtitude:139.6917064
+                             longitude:139.6917064
                                  length:13 
                            expectedHash:@"xn774c06kdtve"];
     [self verifyEncodedHashWithLatitude:-33.8671390
-                             longtitude:151.2071140
+                             longitude:151.2071140
                                  length:13 
                            expectedHash:@"r3gx2f9tt5sne"];
     [self verifyEncodedHashWithLatitude:51.5001524
-                             longtitude:-0.1262362
+                             longitude:-0.1262362
                                  length:13 
                            expectedHash:@"gcpuvpk44kprq"];
 }
@@ -117,26 +117,26 @@
     [self verifyDecodedAreaWithHash:@"c216ne"
                         maxLatitude:45.37353515625
                         minLatitude:45.3680419921875
-                      maxLongtitude:-121.695556640625
-                      minLongtitude:-121.70654296875];
+                      maxLongitude:-121.695556640625
+                      minLongitude:-121.70654296875];
 
     [self verifyDecodedAreaWithHash:@"C216Ne"
                         maxLatitude:45.37353515625
                         minLatitude:45.3680419921875
-                      maxLongtitude:-121.695556640625
-                      minLongtitude:-121.70654296875];
+                      maxLongitude:-121.695556640625
+                      minLongitude:-121.70654296875];
 
     [self verifyDecodedAreaWithHash:@"dqcw4"
                         maxLatitude:39.0673828125
                         minLatitude:39.0234375
-                      maxLongtitude:-76.5087890625
-                      minLongtitude:-76.552734375];
+                      maxLongitude:-76.5087890625
+                      minLongitude:-76.552734375];
 
     [self verifyDecodedAreaWithHash:@"DQCW4"
                         maxLatitude:39.0673828125
                         minLatitude:39.0234375
-                      maxLongtitude:-76.5087890625
-                      minLongtitude:-76.552734375];
+                      maxLongitude:-76.5087890625
+                      minLongitude:-76.552734375];
 }
 
 - (void)testAdjacent

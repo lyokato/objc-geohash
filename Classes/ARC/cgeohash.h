@@ -45,7 +45,7 @@ typedef struct {
 
 typedef struct {
     GEOHASH_range latitude;
-    GEOHASH_range longtitude;
+    GEOHASH_range longitude;
 } GEOHASH_area;
 
 typedef struct {
@@ -60,7 +60,7 @@ typedef struct {
 } GEOHASH_neighbors;
 
 bool GEOHASH_verify_hash(const char *hash);
-char* GEOHASH_encode(double latitude, double longtitude, unsigned int hash_length);
+char* GEOHASH_encode(double latitude, double longitude, unsigned int hash_length);
 GEOHASH_area* GEOHASH_decode(const char* hash);
 GEOHASH_neighbors* GEOHASH_get_neighbors(const char *hash);
 void GEOHASH_free_neighbors(GEOHASH_neighbors *neighbors);

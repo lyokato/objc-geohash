@@ -29,14 +29,14 @@ THE SOFTWARE.
 
 @interface GHArea : NSObject {
     GHRange *latitude;
-    GHRange *longtitude;
+    GHRange *longitude;
 }
 + (id)areaWithLatitude:(GHRange *)latitude
-            longtitude:(GHRange *)longtitude;
+            longitude:(GHRange *)longitude;
 - (id)initWithLatitude:(GHRange *)latitude
-            longtitude:(GHRange *)longtitude;
+            longitude:(GHRange *)longitude;
 
 @property (readonly, strong) GHRange *latitude;
-@property (readonly, strong) GHRange *longtitude;
+@property (readonly, strong) GHRange *longitude;
 @end
 

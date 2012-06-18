@@ -62,13 +62,13 @@ THE SOFTWARE.
 
 
 + (NSString *)hashForLatitude:(double)lat
-                   longtitude:(double)lon
+                   longitude:(double)lon
                        length:(unsigned int)length 
 {
     NSAssert(lat <=   90.0, @"latitude should be under 90");
     NSAssert(lat >=  -90.0, @"latitude should be over -90");
     NSAssert(lon <=  180.0, @"longtitue should be under 180");
-    NSAssert(lon >= -180.0, @"longtitude should be over -180");
+    NSAssert(lon >= -180.0, @"longitude should be over -180");
     NSAssert(length <=  22, @"length should be under 22");
 
     char *raw_hash;
@@ -95,13 +95,13 @@ THE SOFTWARE.
 
     GHRange *latitude = [[GHRange alloc] initWithMax: latMax
                                                  min: latMin];
-    NSNumber *lonMax = [[NSNumber alloc] initWithDouble: raw_area->longtitude.max];
-    NSNumber *lonMin = [[NSNumber alloc] initWithDouble: raw_area->longtitude.min];
+    NSNumber *lonMax = [[NSNumber alloc] initWithDouble: raw_area->longitude.max];
+    NSNumber *lonMin = [[NSNumber alloc] initWithDouble: raw_area->longitude.min];
 
-    GHRange *longtitude = [[GHRange alloc] initWithMax: lonMax
+    GHRange *longitude = [[GHRange alloc] initWithMax: lonMax
                                                    min: lonMin];
     GHArea *area = [GHArea areaWithLatitude:latitude
-                                 longtitude:longtitude];
+                                 longitude:longitude];
 
     GEOHASH_free_area(raw_area);
 

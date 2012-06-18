@@ -28,21 +28,21 @@ THE SOFTWARE.
 @implementation GHArea
 
 @synthesize latitude;
-@synthesize longtitude;
+@synthesize longitude;
 
 + (id)areaWithLatitude:(GHRange *)lat
-            longtitude:(GHRange *)lon
+            longitude:(GHRange *)lon
 {
     return [[[GHArea alloc] initWithLatitude:lat 
-                                  longtitude:lon] autorelease];
+                                  longitude:lon] autorelease];
 }
 
 - (id)initWithLatitude:(GHRange *)lat
-            longtitude:(GHRange *)lon
+            longitude:(GHRange *)lon
 {
     if ((self = [super init]) != nil) {
         latitude   = [lat retain];
-        longtitude = [lon retain];
+        longitude = [lon retain];
     }
     return self;
 }
@@ -50,7 +50,7 @@ THE SOFTWARE.
 - (void)dealloc 
 {
     [latitude release];
-    [longtitude release];
+    [longitude release];
     [super dealloc];
 }
 

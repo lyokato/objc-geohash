@@ -228,7 +228,7 @@
 		908614E214AB34A400CA2B04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "KATO Lyo";
 			};
 			buildConfigurationList = 908614E514AB34A400CA2B04 /* Build configuration list for PBXProject "GeoHashExample" */;

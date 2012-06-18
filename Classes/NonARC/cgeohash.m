@@ -117,10 +117,10 @@ GEOHASH_decode(const char *hash)
 
     area->latitude.max   =   90; 
     area->latitude.min   =  -90; 
-    area->longtitude.max =  180; 
-    area->longtitude.min = -180;
+    area->longitude.max =  180; 
+    area->longitude.min = -180;
 
-    range1 = &area->longtitude;
+    range1 = &area->longitude;
     range2 = &area->latitude;
 
     p = hash;
