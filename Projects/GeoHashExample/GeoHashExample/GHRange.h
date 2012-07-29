@@ -32,7 +32,7 @@ THE SOFTWARE.
                min:(NSNumber *)minValue;
 - (id)initWithMax:(NSNumber *)maxValue
               min:(NSNumber *)minValue;
-@property (readonly, strong) NSNumber *max;
-@property (readonly, strong) NSNumber *min;
+@property (readonly, nonatomic, strong) NSNumber *max;
+@property (readonly, nonatomic, strong) NSNumber *min;
 @end
 

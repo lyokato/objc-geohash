@@ -36,7 +36,7 @@ THE SOFTWARE.
 - (id)initWithLatitude:(GHRange *)latitude
             longitude:(GHRange *)longitude;
 
-@property (readonly, strong) GHRange *latitude;
-@property (readonly, strong) GHRange *longitude;
+@property (readonly, nonatomic, strong) GHRange *latitude;
+@property (readonly, nonatomic, strong) GHRange *longitude;
 @end
 
