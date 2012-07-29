@@ -35,14 +35,14 @@ THE SOFTWARE.
   NSString *southEast;
 }
 
-@property (readonly, strong) NSString *north;
-@property (readonly, strong) NSString *south;
-@property (readonly, strong) NSString *west;
-@property (readonly, strong) NSString *east;
-@property (readonly, strong) NSString *northWest;
-@property (readonly, strong) NSString *northEast;
-@property (readonly, strong) NSString *southWest;
-@property (readonly, strong) NSString *southEast;
+@property (readonly, nonatomic, strong) NSString *north;
+@property (readonly, nonatomic, strong) NSString *south;
+@property (readonly, nonatomic, strong) NSString *west;
+@property (readonly, nonatomic, strong) NSString *east;
+@property (readonly, nonatomic, strong) NSString *northWest;
+@property (readonly, nonatomic, strong) NSString *northEast;
+@property (readonly, nonatomic, strong) NSString *southWest;
+@property (readonly, nonatomic, strong) NSString *southEast;
 
 + (id)neighborsWithNorth:northHash
                    south:southHash
