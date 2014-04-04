@@ -237,7 +237,7 @@ GEOHASH_get_neighbors(const char* hash)
 char*
 GEOHASH_get_adjacent(const char* hash, GEOHASH_direction dir)
 {
-    int len, idx;
+    size_t len, idx;
     const char *border_table, *neighbor_table;
     char *base, *refined_base, *ptr, last;
 
