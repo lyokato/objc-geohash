@@ -20,17 +20,12 @@
 		9086151014AB34A400CA2B04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908614F114AB34A400CA2B04 /* Foundation.framework */; };
 		9086151114AB34A400CA2B04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908614F314AB34A400CA2B04 /* CoreGraphics.framework */; };
 		9086151914AB34A400CA2B04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9086151714AB34A400CA2B04 /* InfoPlist.strings */; };
-		9086152F14AB352200CA2B04 /* cgeohash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152514AB352200CA2B04 /* cgeohash.m */; };
-		9086153014AB352200CA2B04 /* cgeohash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152514AB352200CA2B04 /* cgeohash.m */; };
-		9086153114AB352200CA2B04 /* GeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152814AB352200CA2B04 /* GeoHash.m */; };
-		9086153214AB352200CA2B04 /* GeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152814AB352200CA2B04 /* GeoHash.m */; };
-		9086153314AB352200CA2B04 /* GHArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152A14AB352200CA2B04 /* GHArea.m */; };
-		9086153414AB352200CA2B04 /* GHArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152A14AB352200CA2B04 /* GHArea.m */; };
-		9086153514AB352200CA2B04 /* GHNeighbors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152C14AB352200CA2B04 /* GHNeighbors.m */; };
-		9086153614AB352200CA2B04 /* GHNeighbors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152C14AB352200CA2B04 /* GHNeighbors.m */; };
-		9086153714AB352200CA2B04 /* GHRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152E14AB352200CA2B04 /* GHRange.m */; };
-		9086153814AB352200CA2B04 /* GHRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086152E14AB352200CA2B04 /* GHRange.m */; };
 		9086153B14AB357700CA2B04 /* GeoHashTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086153A14AB357700CA2B04 /* GeoHashTestCase.m */; };
+		A7B48EC21A9206CF00F29AA5 /* cgeohash.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48EB91A9206CF00F29AA5 /* cgeohash.m */; };
+		A7B48EC31A9206CF00F29AA5 /* GeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48EBB1A9206CF00F29AA5 /* GeoHash.m */; };
+		A7B48EC41A9206CF00F29AA5 /* GHArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48EBD1A9206CF00F29AA5 /* GHArea.m */; };
+		A7B48EC51A9206CF00F29AA5 /* GHNeighbors.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48EBF1A9206CF00F29AA5 /* GHNeighbors.m */; };
+		A7B48EC61A9206CF00F29AA5 /* GHRange.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48EC11A9206CF00F29AA5 /* GHRange.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,18 +56,18 @@
 		9086150D14AB34A400CA2B04 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9086151614AB34A400CA2B04 /* GeoHashExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeoHashExampleTests-Info.plist"; sourceTree = "<group>"; };
 		9086151814AB34A400CA2B04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9086152514AB352200CA2B04 /* cgeohash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cgeohash.m; sourceTree = "<group>"; };
-		9086152614AB352200CA2B04 /* cgeohash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cgeohash.h; sourceTree = "<group>"; };
-		9086152714AB352200CA2B04 /* GeoHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoHash.h; sourceTree = "<group>"; };
-		9086152814AB352200CA2B04 /* GeoHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoHash.m; sourceTree = "<group>"; };
-		9086152914AB352200CA2B04 /* GHArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHArea.h; sourceTree = "<group>"; };
-		9086152A14AB352200CA2B04 /* GHArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHArea.m; sourceTree = "<group>"; };
-		9086152B14AB352200CA2B04 /* GHNeighbors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHNeighbors.h; sourceTree = "<group>"; };
-		9086152C14AB352200CA2B04 /* GHNeighbors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHNeighbors.m; sourceTree = "<group>"; };
-		9086152D14AB352200CA2B04 /* GHRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRange.h; sourceTree = "<group>"; };
-		9086152E14AB352200CA2B04 /* GHRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRange.m; sourceTree = "<group>"; };
 		9086153914AB357700CA2B04 /* GeoHashTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoHashTestCase.h; sourceTree = "<group>"; };
 		9086153A14AB357700CA2B04 /* GeoHashTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoHashTestCase.m; sourceTree = "<group>"; };
+		A7B48EB81A9206CF00F29AA5 /* cgeohash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cgeohash.h; sourceTree = "<group>"; };
+		A7B48EB91A9206CF00F29AA5 /* cgeohash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cgeohash.m; sourceTree = "<group>"; };
+		A7B48EBA1A9206CF00F29AA5 /* GeoHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoHash.h; sourceTree = "<group>"; };
+		A7B48EBB1A9206CF00F29AA5 /* GeoHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoHash.m; sourceTree = "<group>"; };
+		A7B48EBC1A9206CF00F29AA5 /* GHArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHArea.h; sourceTree = "<group>"; };
+		A7B48EBD1A9206CF00F29AA5 /* GHArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHArea.m; sourceTree = "<group>"; };
+		A7B48EBE1A9206CF00F29AA5 /* GHNeighbors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHNeighbors.h; sourceTree = "<group>"; };
+		A7B48EBF1A9206CF00F29AA5 /* GHNeighbors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHNeighbors.m; sourceTree = "<group>"; };
+		A7B48EC01A9206CF00F29AA5 /* GHRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRange.h; sourceTree = "<group>"; };
+		A7B48EC11A9206CF00F29AA5 /* GHRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRange.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,16 +128,7 @@
 		908614F514AB34A400CA2B04 /* GeoHashExample */ = {
 			isa = PBXGroup;
 			children = (
-				9086152514AB352200CA2B04 /* cgeohash.m */,
-				9086152614AB352200CA2B04 /* cgeohash.h */,
-				9086152714AB352200CA2B04 /* GeoHash.h */,
-				9086152814AB352200CA2B04 /* GeoHash.m */,
-				9086152914AB352200CA2B04 /* GHArea.h */,
-				9086152A14AB352200CA2B04 /* GHArea.m */,
-				9086152B14AB352200CA2B04 /* GHNeighbors.h */,
-				9086152C14AB352200CA2B04 /* GHNeighbors.m */,
-				9086152D14AB352200CA2B04 /* GHRange.h */,
-				9086152E14AB352200CA2B04 /* GHRange.m */,
+				A7B48EB71A9206CF00F29AA5 /* objc-geohash (ARC) */,
 				908614FE14AB34A400CA2B04 /* GeoHashExampleAppDelegate.h */,
 				908614FF14AB34A400CA2B04 /* GeoHashExampleAppDelegate.m */,
 				9086150114AB34A400CA2B04 /* GeoHashExampleViewController.h */,
@@ -183,6 +169,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A7B48EB71A9206CF00F29AA5 /* objc-geohash (ARC) */ = {
+			isa = PBXGroup;
+			children = (
+				A7B48EB81A9206CF00F29AA5 /* cgeohash.h */,
+				A7B48EB91A9206CF00F29AA5 /* cgeohash.m */,
+				A7B48EBA1A9206CF00F29AA5 /* GeoHash.h */,
+				A7B48EBB1A9206CF00F29AA5 /* GeoHash.m */,
+				A7B48EBC1A9206CF00F29AA5 /* GHArea.h */,
+				A7B48EBD1A9206CF00F29AA5 /* GHArea.m */,
+				A7B48EBE1A9206CF00F29AA5 /* GHNeighbors.h */,
+				A7B48EBF1A9206CF00F29AA5 /* GHNeighbors.m */,
+				A7B48EC01A9206CF00F29AA5 /* GHRange.h */,
+				A7B48EC11A9206CF00F29AA5 /* GHRange.m */,
+			);
+			name = "objc-geohash (ARC)";
+			path = ../../../Classes/ARC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,7 +224,7 @@
 			name = GeoHashExampleTests;
 			productName = GeoHashExampleTests;
 			productReference = 9086150C14AB34A400CA2B04 /* GeoHashExampleTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -290,14 +294,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B48EC51A9206CF00F29AA5 /* GHNeighbors.m in Sources */,
 				908614FC14AB34A400CA2B04 /* main.m in Sources */,
 				9086150014AB34A400CA2B04 /* GeoHashExampleAppDelegate.m in Sources */,
+				A7B48EC21A9206CF00F29AA5 /* cgeohash.m in Sources */,
 				9086150314AB34A400CA2B04 /* GeoHashExampleViewController.m in Sources */,
-				9086152F14AB352200CA2B04 /* cgeohash.m in Sources */,
-				9086153114AB352200CA2B04 /* GeoHash.m in Sources */,
-				9086153314AB352200CA2B04 /* GHArea.m in Sources */,
-				9086153514AB352200CA2B04 /* GHNeighbors.m in Sources */,
-				9086153714AB352200CA2B04 /* GHRange.m in Sources */,
+				A7B48EC31A9206CF00F29AA5 /* GeoHash.m in Sources */,
+				A7B48EC41A9206CF00F29AA5 /* GHArea.m in Sources */,
+				A7B48EC61A9206CF00F29AA5 /* GHRange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,11 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9086153014AB352200CA2B04 /* cgeohash.m in Sources */,
-				9086153214AB352200CA2B04 /* GeoHash.m in Sources */,
-				9086153414AB352200CA2B04 /* GHArea.m in Sources */,
-				9086153614AB352200CA2B04 /* GHNeighbors.m in Sources */,
-				9086153814AB352200CA2B04 /* GHRange.m in Sources */,
 				9086153B14AB357700CA2B04 /* GeoHashTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
