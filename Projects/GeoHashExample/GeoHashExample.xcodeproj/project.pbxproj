@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834D760E1E032654007429D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834D760D1E032654007429D7 /* MapKit.framework */; };
+		834D76101E032A8A007429D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834D760F1E032A8A007429D7 /* CoreLocation.framework */; };
+		834D761E1E048025007429D7 /* GeoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D761B1E048025007429D7 /* GeoHelper.m */; };
+		834D761F1E048025007429D7 /* NSBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D761D1E048025007429D7 /* NSBag.m */; };
 		908614F014AB34A400CA2B04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908614EF14AB34A400CA2B04 /* UIKit.framework */; };
 		908614F214AB34A400CA2B04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908614F114AB34A400CA2B04 /* Foundation.framework */; };
 		908614F414AB34A400CA2B04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908614F314AB34A400CA2B04 /* CoreGraphics.framework */; };
@@ -39,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		834D760D1E032654007429D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		834D760F1E032A8A007429D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		834D761A1E048025007429D7 /* GeoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoHelper.h; sourceTree = "<group>"; };
+		834D761B1E048025007429D7 /* GeoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoHelper.m; sourceTree = "<group>"; };
+		834D761C1E048025007429D7 /* NSBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBag.h; sourceTree = "<group>"; };
+		834D761D1E048025007429D7 /* NSBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBag.m; sourceTree = "<group>"; };
 		908614EB14AB34A400CA2B04 /* GeoHashExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoHashExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908614EF14AB34A400CA2B04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		908614F114AB34A400CA2B04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834D76101E032A8A007429D7 /* CoreLocation.framework in Frameworks */,
+				834D760E1E032654007429D7 /* MapKit.framework in Frameworks */,
 				908614F014AB34A400CA2B04 /* UIKit.framework in Frameworks */,
 				908614F214AB34A400CA2B04 /* Foundation.framework in Frameworks */,
 				908614F414AB34A400CA2B04 /* CoreGraphics.framework in Frameworks */,
@@ -117,6 +129,8 @@
 		908614EE14AB34A400CA2B04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				834D760F1E032A8A007429D7 /* CoreLocation.framework */,
+				834D760D1E032654007429D7 /* MapKit.framework */,
 				908614EF14AB34A400CA2B04 /* UIKit.framework */,
 				908614F114AB34A400CA2B04 /* Foundation.framework */,
 				908614F314AB34A400CA2B04 /* CoreGraphics.framework */,
@@ -128,6 +142,10 @@
 		908614F514AB34A400CA2B04 /* GeoHashExample */ = {
 			isa = PBXGroup;
 			children = (
+				834D761A1E048025007429D7 /* GeoHelper.h */,
+				834D761B1E048025007429D7 /* GeoHelper.m */,
+				834D761C1E048025007429D7 /* NSBag.h */,
+				834D761D1E048025007429D7 /* NSBag.m */,
 				A7B48EB71A9206CF00F29AA5 /* objc-geohash (ARC) */,
 				908614FE14AB34A400CA2B04 /* GeoHashExampleAppDelegate.h */,
 				908614FF14AB34A400CA2B04 /* GeoHashExampleAppDelegate.m */,
@@ -234,6 +252,11 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "KATO Lyo";
+				TargetAttributes = {
+					908614EA14AB34A400CA2B04 = {
+						DevelopmentTeam = WMDZ2CQA8K;
+					};
+				};
 			};
 			buildConfigurationList = 908614E514AB34A400CA2B04 /* Build configuration list for PBXProject "GeoHashExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -297,9 +320,11 @@
 				A7B48EC51A9206CF00F29AA5 /* GHNeighbors.m in Sources */,
 				908614FC14AB34A400CA2B04 /* main.m in Sources */,
 				9086150014AB34A400CA2B04 /* GeoHashExampleAppDelegate.m in Sources */,
+				834D761E1E048025007429D7 /* GeoHelper.m in Sources */,
 				A7B48EC21A9206CF00F29AA5 /* cgeohash.m in Sources */,
 				9086150314AB34A400CA2B04 /* GeoHashExampleViewController.m in Sources */,
 				A7B48EC31A9206CF00F29AA5 /* GeoHash.m in Sources */,
+				834D761F1E048025007429D7 /* NSBag.m in Sources */,
 				A7B48EC41A9206CF00F29AA5 /* GHArea.m in Sources */,
 				A7B48EC61A9206CF00F29AA5 /* GHRange.m in Sources */,
 			);
@@ -372,7 +397,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -391,7 +416,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -402,9 +427,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				DEVELOPMENT_TEAM = WMDZ2CQA8K;
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GeoHashExample/GeoHashExample-Prefix.pch";
 				INFOPLIST_FILE = "GeoHashExample/GeoHashExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.lyokato.geohash.GeoHashExample11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -414,9 +442,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				DEVELOPMENT_TEAM = WMDZ2CQA8K;
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GeoHashExample/GeoHashExample-Prefix.pch";
 				INFOPLIST_FILE = "GeoHashExample/GeoHashExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.lyokato.geohash.GeoHashExample11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
