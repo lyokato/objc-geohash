@@ -94,7 +94,7 @@ GEOHASH_verify_hash(const char *hash)
         if (c < 0x30)
             return false;
         c -= 0x30;
-        if (c > 43)
+        if (c > 42)
             return false;
         if (BASE32_DECODE_TABLE[c] == -1)
             return false;
