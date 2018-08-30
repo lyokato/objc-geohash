@@ -20,39 +20,99 @@ NSString *hash = [GeoHash hashForLatitude:35.6894875
 
 
 /* Decode GeoHash and get an area which the hash indicates */
+	
+	GHArea *area = [GeoHash areaForHash:@"c216ne"];
+	
+	area.latitude.max
+	area.latitude.min
+	area.longitude.max
+	area.longitude.min
+	
+	
+	/* Adjacent */
+	NSString *adjacentHash = [GeoHash adjacentForHash:@"dqcjq"
+	                                        direction:GHDirectionNorth];
+	/* @"dqcjw" */
+	
+	
+	GHNeighbors *neighbors = [GeoHash neighborsForHash:@"dqcw5"];
+	
+	neighbors.north
+	neighbors.south
+	neighbors.east
+	neighbors.west
+	neighbors.northEast
+	neighbors.northWest
+	neighbors.southEast
+	neighbors.southWest
+	
+	
+	/* check invalid hash */
+	if (![GeoHash verifyHash:@"abw!@"])
+	{
+	    ...
+	}
 
-GHArea *area = [GeoHash areaForHash:@"c216ne"];
-
-area.latitude.max
-area.latitude.min
-area.longitude.max
-area.longitude.min
-
-
-/* Adjacent */
-NSString *adjacentHash = [GeoHash adjacentForHash:@"dqcjq"
-                                        direction:GHDirectionNorth];
-/* @"dqcjw" */
-
-
-GHNeighbors *neighbors = [GeoHash neighborsForHash:@"dqcw5"];
-
-neighbors.north
-neighbors.south
-neighbors.east
-neighbors.west
-neighbors.northEast
-neighbors.northWest
-neighbors.southEast
-neighbors.southWest
-
-
-/* check invalid hash */
-if (![GeoHash verifyHash:@"abw!@"])
-{
-    ...
-}
-
+ Sample of hash grid in New York city by MapRect 
+	
+	// New York City - 800m grid
+	CLLocationCoordinate2D ny = CLLocationCoordinate2DMake(40.753683, -73.972640);
+	double distance = 800;
+	
+	CLLocationDistance latMetersPerPoint = MKMetersPerMapPointAtLatitude(ny.latitude);
+	CLLocationDistance lngMetersPerPoint = MKMetersPerMapPointAtLatitude(ny.longitude);
+	
+	double latPts = latMetersPerPoint *distance;
+	double lngPts =  lngMetersPerPoint *distance;
+	
+	MKMapPoint ptNY = MKMapPointForCoordinate(ny);    
+	MKMapRect mapRect = MKMapRectMake(ptNY.x, ptNY.y, latPts, lngPts);    
+	   
+	NSDictionary *hashGrid = [GeoHelper hashGridForMapRect:mapRect];   
+	NSArray *array = [hashGrid valueForKey:@"mbr"];    
+	NSBag *bag = [hashGrid valueForKey:@"bag"];    
+	NSLog(@"bag:%@",bag.internalDictionary);   
+	NSLog(@"array:%@",array);   
+	
+Depending on your needs in Geohelper   
+	    int depth = 12; // chars deep into geohash
+	    BOOL excludeTopLevel = YES;
+	
+	bag:{
+	    dr = 4;
+	    dr5 = 4;
+	    dr5r = 4;
+	    dr5ru = 4;
+	    dr5rud = 4;
+	    dr5rudy = 4;
+	    dr5rudyz = 4;
+	    dr5rudyz0 = 1;
+	    dr5rudyz0w = 1;
+	    dr5rudyz0wc = 1;
+	    dr5rudyz0wcu = 1;
+	    dr5rudyz2 = 1;
+	    dr5rudyz2t = 1;
+	    dr5rudyz2t1 = 1;
+	    dr5rudyz2t1u = 1;
+	    dr5rudyz5 = 1;
+	    dr5rudyz5q = 1;
+	    dr5rudyz5qu = 1;
+	    dr5rudyz5quh = 1;
+	    dr5rudyz7 = 1;
+	    dr5rudyz7m = 1;
+	    dr5rudyz7mh = 1;
+	    dr5rudyz7mhh = 1;
+	}
+	
+	2016-12-16 15:15:34.954 GeoHashExample[55252:2507736] array:(
+	    dr5rudy,
+	    dr5ru,
+	    dr5r,
+	    dr5rud,
+	    dr5,
+	    dr,
+	    dr5rudyz
+	)
 
 
 

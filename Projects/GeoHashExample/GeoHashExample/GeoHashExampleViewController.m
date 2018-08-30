@@ -7,54 +7,51 @@
 //
 
 #import "GeoHashExampleViewController.h"
+#import "GeoHash.h"
+#import <MapKit/MapKit.h>
 
 @implementation GeoHashExampleViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
+    
+    /* Get GetHash by latitude, longitude, and hash-length */
+    
+    NSString *hash = [GeoHash hashForLatitude:40.753683
+                                    longitude:-73.972640
+                                       length:12];
+    
+    /* hash equals to @"xn774c06kdtve" */
+    NSLog(@"hash:%@",hash);
+    
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+    
+    // New York City - 800m grid
+    CLLocationCoordinate2D ny = CLLocationCoordinate2DMake(40.753683, -73.972640);
+    double distance = 800;
+    
+    CLLocationDistance latMetersPerPoint = MKMetersPerMapPointAtLatitude(ny.latitude);
+    CLLocationDistance lngMetersPerPoint = MKMetersPerMapPointAtLatitude(ny.longitude);
+    
+    double latPts = latMetersPerPoint *distance;
+    double lngPts =  lngMetersPerPoint *distance;
+    
+    MKMapPoint ptNY = MKMapPointForCoordinate(ny);
+    MKMapRect mapRect = MKMapRectMake(ptNY.x, ptNY.y, latPts, lngPts);
+    
+    NSDictionary *hashGrid = [GeoHelper hashGridForMapRect:mapRect];
+    NSArray *array = [hashGrid valueForKey:@"mbr"];
+    NSBag *bag = [hashGrid valueForKey:@"bag"];
+    NSLog(@"bag:%@",bag.internalDictionary);
+    NSLog(@"array:%@",array);
+    
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
 @end
+
+
